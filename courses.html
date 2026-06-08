@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses — NexusLearn AI & Coding Education</title>
+  <meta name="description" content="Explore NexusLearn's full catalog of AI, Python, Web Development, and Robotics courses designed for kids aged 8–18." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 9px 22px;
+      border-radius: var(--radius-full);
+      background: rgba(91,94,244,0.08);
+      border: 1.5px solid var(--color-border);
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--gradient-primary);
+      border-color: transparent;
+      color: #fff;
+    }
+
+    .coming-soon-banner {
+      background: linear-gradient(135deg, rgba(91,94,244,0.15), rgba(168,85,247,0.15));
+      border: 1px solid rgba(91,94,244,0.3);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    .coming-soon-banner h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .coming-soon-banner p {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .course-level-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .level-beginner { background: rgba(34,197,94,0.15); color: #4ade80; }
+    .level-intermediate { background: rgba(245,158,11,0.15); color: #fbbf24; }
+    .level-advanced { background: rgba(239,68,68,0.15); color: #f87171; }
+
+    .course-rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .course-rating .stars { color: #f59e0b; font-size: 0.78rem; }
+    .course-rating .count { font-size: 0.75rem; }
+
+    .enroll-price {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .enroll-price .original {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      font-weight: 400;
+      margin-left: 6px;
+      font-family: var(--font-body);
+    }
+
+    @media (max-width: 768px) {
+      .courses-full-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="NexusLearn Home">
+        <div class="nav-logo-icon" aria-hidden="true">🚀</div>
+        <span>NexusLearn</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#why-ai">AI &amp; Coding</a></li>
+        <li><a href="courses.html" class="active">Courses</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="courses.html" class="btn btn-outline btn-sm">View Courses</a>
+        <a href="contact.html" class="btn btn-primary btn-sm">Book Demo</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-nav" class="mobile-nav" role="menu">
+    <a href="index.html" role="menuitem">🏠 Home</a>
+    <a href="index.html#why-ai" role="menuitem">🤖 Why AI?</a>
+    <a href="courses.html" class="active" role="menuitem">📚 Courses</a>
+    <a href="about.html" role="menuitem">👥 About Us</a>
+    <a href="contact.html" role="menuitem">📞 Contact</a>
+    <a href="contact.html" class="btn btn-primary">Book Free Demo</a>
+  </div>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="page-hero" aria-labelledby="courses-page-heading">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-orb page-hero-orb-1" aria-hidden="true"></div>
+    <div class="page-hero-orb page-hero-orb-2" aria-hidden="true"></div>
+    <div class="page-hero-grid" aria-hidden="true"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="badge" style="margin:0 auto 16px;">📚 All Courses</div>
+        <h1 id="courses-page-heading">
+          Find Your <span class="text-gradient">Perfect Course</span>
+        </h1>
+        <p>From AI fundamentals to advanced robotics — carefully crafted courses designed to make every child a confident technology creator.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COURSES LISTING ═══ -->
+  <section class="section-padding" aria-labelledby="all-courses-heading">
+    <div class="container">
+      <h2 id="all-courses-heading" class="sr-only">All Courses</h2>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar" role="group" aria-label="Course category filters">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All Courses</button>
+        <button class="filter-btn" data-filter="ai" aria-pressed="false">🤖 AI</button>
+        <button class="filter-btn" data-filter="coding" aria-pressed="false">💻 Coding</button>
+        <button class="filter-btn" data-filter="webdev" aria-pressed="false">🌐 Web Dev</button>
+        <button class="filter-btn" data-filter="robotics" aria-pressed="false">⚙️ Robotics</button>
+      </div>
+
+      <div class="courses-full-grid" role="list">
+
+        <!-- AI for Beginners -->
+        <article class="course-full-card reveal reveal-delay-1" role="listitem" data-category="ai">
+          <div class="course-full-image">
+            <img src="images/course-ai.png" alt="AI for Beginners" loading="lazy" />
+            <span class="course-tag tag-purple" style="position:absolute;top:12px;left:12px;">🤖 AI</span>
+          </div>
+          <div class="course-full-body">
+            <span class="course-level-badge level-beginner">⬤ Beginner</span>
+            <div class="course-rating">
+              <span class="stars">★★★★★</span>
+              <span>4.9</span>
+              <span class="count">(324 reviews)</span>
+            </div>
+            <h3>AI for Beginners</h3>
+            <p>Discover the world of Artificial Intelligence. Understand how machines think, learn, and solve problems. No prior coding experience required — just curiosity and a desire to learn.</p>
+            <ul class="course-detail-list">
+              <li>What is Artificial Intelligence &amp; how it works</li>
+              <li>Machine Learning fundamentals explained simply</li>
+              <li>Prompt engineering with ChatGPT &amp; other AI tools</li>
+              <li>Real-world AI applications in healthcare, education, finance</li>
+              <li>AI ethics &amp; responsible technology use</li>
+              <li>Capstone project: Build your own AI-powered tool</li>
+            </ul>
+            <div class="course-footer">
+              <div class="course-duration">⏱️ 8 Weeks &nbsp;|&nbsp; 👤 Ages 10–18 &nbsp;|&nbsp; 🎓 Certificate</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;" aria-label="Enroll in AI for Beginners">Enroll Now →</a>
+          </div>
+        </article>
+
+        <!-- Python Programming -->
+        <article class="course-full-card reveal reveal-delay-2" role="listitem" data-category="coding">
+          <div class="course-full-image">
+            <img src="images/course-python.png" alt="Python Programming" loading="lazy" />
+            <span class="course-tag tag-orange" style="position:absolute;top:12px;left:12px;">🐍 Python</span>
+          </div>
+          <div class="course-full-body">
+            <span class="course-level-badge level-beginner">⬤ Beginner</span>
+            <div class="course-rating">
+              <span class="stars">★★★★★</span>
+              <span>4.8</span>
+              <span class="count">(512 reviews)</span>
+            </div>
+            <h3>Python Programming</h3>
+            <p>Learn the world's most popular and versatile programming language from absolute zero. Build real projects that you'll be proud to share with friends and family.</p>
+            <ul class="course-detail-list">
+              <li>Python setup, variables, data types &amp; operators</li>
+              <li>Control flow: if/else, loops, and functions</li>
+              <li>Lists, dictionaries, tuples and data structures</li>
+              <li>File handling and working with libraries</li>
+              <li>Object-oriented programming basics</li>
+              <li>Final project: Build a complete Python application</li>
+            </ul>
+            <div class="course-footer">
+              <div class="course-duration">⏱️ 10 Weeks &nbsp;|&nbsp; 👤 Ages 10–18 &nbsp;|&nbsp; 🎓 Certificate</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;" aria-label="Enroll in Python Programming">Enroll Now →</a>
+          </div>
+        </article>
+
+        <!-- Web Development -->
+        <article class="course-full-card reveal reveal-delay-3" role="listitem" data-category="webdev">
+          <div class="course-full-image">
+            <img src="images/course-webdev.png" alt="Web Development" loading="lazy" />
+            <span class="course-tag tag-cyan" style="position:absolute;top:12px;left:12px;">🌐 Web Dev</span>
+          </div>
+          <div class="course-full-body">
+            <span class="course-level-badge level-beginner">⬤ Beginner</span>
+            <div class="course-rating">
+              <span class="stars">★★★★★</span>
+              <span>4.9</span>
+              <span class="count">(278 reviews)</span>
+            </div>
+            <h3>Web Development</h3>
+            <p>Build beautiful, professional websites from scratch using the exact same technologies used by top companies worldwide. Go from zero to deploying your first live website.</p>
+            <ul class="course-detail-list">
+              <li>HTML5: semantic structure &amp; elements</li>
+              <li>CSS3: layouts, flexbox, grid &amp; animations</li>
+              <li>JavaScript: logic, interactivity &amp; DOM manipulation</li>
+              <li>Responsive design for mobile, tablet &amp; desktop</li>
+              <li>Introduction to version control with Git</li>
+              <li>Final project: Design &amp; publish your own website</li>
+            </ul>
+            <div class="course-footer">
+              <div class="course-duration">⏱️ 12 Weeks &nbsp;|&nbsp; 👤 Ages 12–18 &nbsp;|&nbsp; 🎓 Certificate</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;" aria-label="Enroll in Web Development">Enroll Now →</a>
+          </div>
+        </article>
+
+        <!-- Robotics Basics -->
+        <article class="course-full-card reveal reveal-delay-1" role="listitem" data-category="robotics">
+          <div class="course-full-image">
+            <div style="height:100%;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;font-size:5rem;">🤖</div>
+            <span class="course-tag tag-orange" style="position:absolute;top:12px;left:12px;">⚙️ Robotics</span>
+          </div>
+          <div class="course-full-body">
+            <span class="course-level-badge level-beginner">⬤ Beginner</span>
+            <div class="course-rating">
+              <span class="stars">★★★★★</span>
+              <span>4.7</span>
+              <span class="count">(189 reviews)</span>
+            </div>
+            <h3>Robotics Basics</h3>
+            <p>Hands-on robotics for young engineers. Discover how robots work, program microcontrollers, and build your very first working robot from scratch.</p>
+            <ul class="course-detail-list">
+              <li>Introduction to electronics &amp; circuits</li>
+              <li>Understanding sensors, motors &amp; actuators</li>
+              <li>Programming with Arduino (block-based + C++)</li>
+              <li>Automation principles and real-world applications</li>
+              <li>Building line-following &amp; obstacle-avoiding robots</li>
+              <li>Final project: Design &amp; program your own robot</li>
+            </ul>
+            <div class="course-footer">
+              <div class="course-duration">⏱️ 10 Weeks &nbsp;|&nbsp; 👤 Ages 8–18 &nbsp;|&nbsp; 🎓 Certificate</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;" aria-label="Enroll in Robotics Basics">Enroll Now →</a>
+          </div>
+        </article>
+
+        <!-- Advanced Python & AI -->
+        <article class="course-full-card reveal reveal-delay-2" role="listitem" data-category="ai coding">
+          <div class="course-full-image">
+            <div style="height:100%;background:linear-gradient(135deg,#5B5EF4,#A855F7);display:flex;align-items:center;justify-content:center;font-size:5rem;">🧠</div>
+            <span class="course-tag tag-purple" style="position:absolute;top:12px;left:12px;">🧠 Advanced</span>
+          </div>
+          <div class="course-full-body">
+            <span class="course-level-badge level-intermediate">⬤ Intermediate</span>
+            <div class="course-rating">
+              <span class="stars">★★★★★</span>
+              <span>4.9</span>
+              <span class="count">(96 reviews)</span>
+            </div>
+            <h3>Advanced Python &amp; AI Projects</h3>
+            <p>Take your Python skills to the next level. Build real AI-powered applications using machine learning libraries and create portfolio-worthy projects.</p>
+            <ul class="course-detail-list">
+              <li>Python for data science: NumPy, Pandas, Matplotlib</li>
+              <li>Introduction to Machine Learning with scikit-learn</li>
+              <li>Building chatbots with NLP fundamentals</li>
+              <li>Computer vision basics with OpenCV</li>
+              <li>API integration &amp; building AI-powered apps</li>
+              <li>Final project: Full AI application for your portfolio</li>
+            </ul>
+            <div class="course-footer">
+              <div class="course-duration">⏱️ 14 Weeks &nbsp;|&nbsp; 👤 Ages 14–18 &nbsp;|&nbsp; 🎓 Certificate</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;" aria-label="Enroll in Advanced Python and AI">Enroll Now →</a>
+          </div>
+        </article>
+
+        <!-- Game Development -->
+        <article class="course-full-card reveal reveal-delay-3" role="listitem" data-category="coding">
+          <div class="course-full-image">
+            <div style="height:100%;background:linear-gradient(135deg,#06B6D4,#3B82F6);display:flex;align-items:center;justify-content:center;font-size:5rem;">🎮</div>
+            <span class="course-tag tag-cyan" style="position:absolute;top:12px;left:12px;">🎮 Game Dev</span>
+          </div>
+          <div class="course-full-body">
+            <span class="course-level-badge level-beginner">⬤ Beginner</span>
+            <div class="course-rating">
+              <span class="stars">★★★★★</span>
+              <span>4.8</span>
+              <span class="count">(147 reviews)</span>
+            </div>
+            <h3>Game Development with Python</h3>
+            <p>Learn to create fun, playable 2D games using Python and Pygame. Turn your gaming passion into programming skills that will open doors throughout your career.</p>
+            <ul class="course-detail-list">
+              <li>Python basics refresher &amp; Pygame setup</li>
+              <li>Game loops, events &amp; player controls</li>
+              <li>Collision detection &amp; game physics</li>
+              <li>Sprites, animations &amp; sound effects</li>
+              <li>Scoring systems &amp; game state management</li>
+              <li>Final project: Publish your own original game</li>
+            </ul>
+            <div class="course-footer">
+              <div class="course-duration">⏱️ 10 Weeks &nbsp;|&nbsp; 👤 Ages 12–18 &nbsp;|&nbsp; 🎓 Certificate</div>
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;" aria-label="Enroll in Game Development">Enroll Now →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Coming Soon -->
+      <div class="coming-soon-banner reveal">
+        <div style="font-size:2rem;margin-bottom:12px;">🔜</div>
+        <h3>More Courses Coming Soon!</h3>
+        <p>Data Science for Teens, Cybersecurity Basics, Mobile App Development, and more are in development. Be the first to know!</p>
+        <a href="contact.html" class="btn btn-primary">📧 Get Notified</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="section-padding-sm" style="background:var(--color-bg-2);" aria-labelledby="courses-cta-heading">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="badge" style="margin:0 auto 20px;">🎯 Free First Lesson</div>
+        <h2 id="courses-cta-heading">Not Sure Where to <span class="text-gradient">Start?</span></h2>
+        <p>Book a free 30-minute demo class. Our advisors will match your child to the perfect course based on their age, interests, and goals.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary btn-lg">📅 Book Free Demo</a>
+          <a href="contact.html" class="btn btn-outline btn-lg">💬 Talk to an Advisor</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="display:inline-flex;">
+            <div class="nav-logo-icon">🚀</div>
+            <span>NexusLearn</span>
+          </a>
+          <p>Empowering the next generation of innovators with AI, coding, and technology skills.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="about.html#mission">Mission &amp; Vision</a></li>
+            <li><a href="about.html#team">Meet the Team</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Courses</h4>
+          <ul>
+            <li><a href="courses.html">AI for Beginners</a></li>
+            <li><a href="courses.html">Python Programming</a></li>
+            <li><a href="courses.html">Web Development</a></li>
+            <li><a href="courses.html">Robotics Basics</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Get in Touch</a></li>
+            <li><a href="contact.html">Book Free Demo</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 NexusLearn. All rights reserved. Made with ❤️ for curious minds.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>

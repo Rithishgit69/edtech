@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — NexusLearn AI & Coding Education</title>
+  <meta name="description" content="Get in touch with NexusLearn. Book a free demo class, ask questions, or speak to an advisor about the right course for your child." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .contact-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .contact-social .social-link {
+      width: 38px; height: 38px;
+    }
+
+    .demo-steps {
+      margin-top: 36px;
+    }
+    .demo-steps h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.82rem;
+    }
+    .demo-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .demo-step-num {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      color: #fff;
+    }
+    .demo-step-text h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .demo-step-text p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .map-placeholder {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(135deg, rgba(91,94,244,0.12), rgba(168,85,247,0.12));
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 32px;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+    .map-placeholder .map-icon {
+      font-size: 2.5rem;
+    }
+
+    .contact-faq {
+      margin-top: 80px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="NexusLearn Home">
+        <div class="nav-logo-icon" aria-hidden="true">🚀</div>
+        <span>NexusLearn</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#why-ai">AI &amp; Coding</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="courses.html" class="btn btn-outline btn-sm">View Courses</a>
+        <a href="contact.html" class="btn btn-primary btn-sm">Book Demo</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-nav" class="mobile-nav" role="menu">
+    <a href="index.html" role="menuitem">🏠 Home</a>
+    <a href="index.html#why-ai" role="menuitem">🤖 Why AI?</a>
+    <a href="courses.html" role="menuitem">📚 Courses</a>
+    <a href="about.html" role="menuitem">👥 About Us</a>
+    <a href="contact.html" class="active" role="menuitem">📞 Contact</a>
+    <a href="contact.html" class="btn btn-primary">Book Free Demo</a>
+  </div>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="page-hero" aria-labelledby="contact-page-heading">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-orb page-hero-orb-1" aria-hidden="true"></div>
+    <div class="page-hero-orb page-hero-orb-2" aria-hidden="true"></div>
+    <div class="page-hero-grid" aria-hidden="true"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="badge" style="margin:0 auto 16px;">📞 Get In Touch</div>
+        <h1 id="contact-page-heading">
+          We'd Love to <span class="text-gradient">Hear From You</span>
+        </h1>
+        <p>Book a free demo class, ask a question, or simply say hello. Our team responds within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT CONTENT ═══ -->
+  <section class="section-padding" aria-labelledby="contact-content-heading">
+    <div class="container">
+      <h2 id="contact-content-heading" class="sr-only">Contact Information and Form</h2>
+
+      <div class="contact-grid">
+
+        <!-- Info Side -->
+        <div class="contact-info reveal-left">
+          <div class="badge" style="margin-bottom:16px;">✉️ Contact Info</div>
+          <h2>Let's Start a <span class="text-gradient">Conversation</span></h2>
+          <p>Whether you're a parent looking to enroll your child, a student with questions, or a teacher interested in partnership — we're here to help.</p>
+
+          <div class="contact-details" role="list">
+            <div class="contact-detail" role="listitem">
+              <div class="icon-wrap" aria-hidden="true">📧</div>
+              <div class="detail-text">
+                <div class="label">Email Us</div>
+                <div class="value"><a href="mailto:hello@nexuslearn.edu" style="color:var(--color-primary)">hello@nexuslearn.edu</a></div>
+              </div>
+            </div>
+            <div class="contact-detail" role="listitem">
+              <div class="icon-wrap" aria-hidden="true">📱</div>
+              <div class="detail-text">
+                <div class="label">Call or WhatsApp</div>
+                <div class="value">+91 98765 43210</div>
+              </div>
+            </div>
+            <div class="contact-detail" role="listitem">
+              <div class="icon-wrap" aria-hidden="true">⏰</div>
+              <div class="detail-text">
+                <div class="label">Office Hours</div>
+                <div class="value">Mon–Sat, 9 AM – 7 PM IST</div>
+              </div>
+            </div>
+            <div class="contact-detail" role="listitem">
+              <div class="icon-wrap" aria-hidden="true">📍</div>
+              <div class="detail-text">
+                <div class="label">Head Office</div>
+                <div class="value">Bengaluru, Karnataka, India</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:10px;">Follow Us</div>
+            <div class="contact-social" aria-label="Social media links">
+              <a href="#" class="social-link" aria-label="Twitter / X">𝕏</a>
+              <a href="#" class="social-link" aria-label="Instagram">📸</a>
+              <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+              <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+              <a href="#" class="social-link" aria-label="WhatsApp">💬</a>
+            </div>
+          </div>
+
+          <!-- How it works -->
+          <div class="demo-steps">
+            <h3>How the Free Demo Works</h3>
+            <div class="demo-step">
+              <div class="demo-step-num" aria-hidden="true">1</div>
+              <div class="demo-step-text">
+                <h4>Fill in the form</h4>
+                <p>Share your child's age, interests, and preferred time.</p>
+              </div>
+            </div>
+            <div class="demo-step">
+              <div class="demo-step-num" aria-hidden="true">2</div>
+              <div class="demo-step-text">
+                <h4>We call you back</h4>
+                <p>An advisor will contact you within 24 hours to discuss.</p>
+              </div>
+            </div>
+            <div class="demo-step">
+              <div class="demo-step-num" aria-hidden="true">3</div>
+              <div class="demo-step-text">
+                <h4>Attend the free class</h4>
+                <p>Your child joins a 30-minute live demo session — completely free!</p>
+              </div>
+            </div>
+            <div class="demo-step">
+              <div class="demo-step-num" aria-hidden="true">4</div>
+              <div class="demo-step-text">
+                <h4>Choose your course</h4>
+                <p>Enroll in the course that's the perfect fit and start your journey.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-placeholder" aria-label="Bengaluru location indicator">
+            <span class="map-icon" aria-hidden="true">📍</span>
+            <span>Bengaluru, Karnataka, India</span>
+          </div>
+        </div>
+
+        <!-- Form Side -->
+        <div class="glass-card contact-form-card reveal-right">
+          <h3>📅 Book Your Free Demo Class</h3>
+
+          <!-- Success message (hidden by default) -->
+          <div id="form-success" class="form-success" role="alert" aria-live="polite">
+            <div class="success-icon" aria-hidden="true">🎉</div>
+            <h4>Message Sent Successfully!</h4>
+            <p>Thank you for reaching out! Our team will contact you within 24 hours to schedule your free demo class. We can't wait to meet you!</p>
+          </div>
+
+          <!-- Contact Form -->
+          <form id="contact-form" novalidate aria-label="Contact and demo booking form">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="contact-name">Full Name *</label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  class="form-control"
+                  placeholder="e.g. Priya Sharma"
+                  autocomplete="name"
+                  aria-required="true"
+                  aria-describedby="name-error"
+                />
+                <div class="form-error" id="name-error" data-error="name" role="alert"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-phone">Phone Number *</label>
+                <input
+                  type="tel"
+                  id="contact-phone"
+                  name="phone"
+                  class="form-control"
+                  placeholder="+91 98765 43210"
+                  autocomplete="tel"
+                  aria-required="true"
+                  aria-describedby="phone-error"
+                />
+                <div class="form-error" id="phone-error" data-error="phone" role="alert"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-email">Email Address *</label>
+              <input
+                type="email"
+                id="contact-email"
+                name="email"
+                class="form-control"
+                placeholder="your@email.com"
+                autocomplete="email"
+                aria-required="true"
+                aria-describedby="email-error"
+              />
+              <div class="form-error" id="email-error" data-error="email" role="alert"></div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="contact-child-age">Child's Age</label>
+                <select id="contact-child-age" name="child_age" class="form-control">
+                  <option value="">Select age range</option>
+                  <option>8–10 years</option>
+                  <option>11–13 years</option>
+                  <option>14–16 years</option>
+                  <option>17–18 years</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-course">Course Interest</label>
+                <select id="contact-course" name="course" class="form-control">
+                  <option value="">Select a course</option>
+                  <option>AI for Beginners</option>
+                  <option>Python Programming</option>
+                  <option>Web Development</option>
+                  <option>Robotics Basics</option>
+                  <option>Advanced Python &amp; AI</option>
+                  <option>Game Development</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-message">Your Message *</label>
+              <textarea
+                id="contact-message"
+                name="message"
+                class="form-control"
+                placeholder="Tell us about your child, any questions you have, or preferred class timings..."
+                aria-required="true"
+                aria-describedby="message-error"
+              ></textarea>
+              <div class="form-error" id="message-error" data-error="message" role="alert"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;" id="submit-btn">
+              🚀 Send Message &amp; Book Demo
+            </button>
+
+            <p style="font-size:0.78rem;color:var(--text-muted);text-align:center;margin-top:14px;">
+              🔒 We respect your privacy. Your information is never shared with third parties.
+            </p>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- FAQ quick answers -->
+      <div class="contact-faq">
+        <div class="section-header">
+          <div class="badge reveal">❓ Quick Answers</div>
+          <h2 class="reveal reveal-delay-1">Common Questions <span class="text-gradient">Answered</span></h2>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-item reveal">
+            <button class="faq-question" aria-expanded="false">
+              <span>How much do the courses cost?</span>
+              <div class="faq-icon" aria-hidden="true">+</div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                Our courses are priced to be accessible. Contact us or book a demo for current pricing and available scholarships. We also offer sibling discounts and payment plans.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question" aria-expanded="false">
+              <span>What equipment does my child need?</span>
+              <div class="faq-icon" aria-hidden="true">+</div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                A laptop or desktop computer with a stable internet connection is all you need. A webcam and microphone are helpful for live classes. We'll guide you on any free software installation before the course begins.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-question" aria-expanded="false">
+              <span>What if my child misses a class?</span>
+              <div class="faq-icon" aria-hidden="true">+</div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                No worries! All live sessions are recorded and accessible to students for the duration of their course. We also offer make-up sessions for missed classes in our small group format.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal reveal-delay-3">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do you offer group or school partnerships?</span>
+              <div class="faq-icon" aria-hidden="true">+</div>
+            </button>
+            <div class="faq-answer" role="region">
+              <div class="faq-answer-inner">
+                Absolutely! We have special programs for schools, coding clubs, and group enrollments. Contact us at <strong>partners@nexuslearn.edu</strong> for custom pricing and curriculum integration options.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="display:inline-flex;">
+            <div class="nav-logo-icon">🚀</div>
+            <span>NexusLearn</span>
+          </a>
+          <p>Empowering the next generation of innovators with AI, coding, and technology skills.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="about.html#mission">Mission &amp; Vision</a></li>
+            <li><a href="about.html#team">Meet the Team</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Courses</h4>
+          <ul>
+            <li><a href="courses.html">AI for Beginners</a></li>
+            <li><a href="courses.html">Python Programming</a></li>
+            <li><a href="courses.html">Web Development</a></li>
+            <li><a href="courses.html">Robotics Basics</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Get in Touch</a></li>
+            <li><a href="contact.html">Book Free Demo</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 NexusLearn. All rights reserved. Made with ❤️ for curious minds.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexusLearn — AI & Coding Education for Kids</title>
+  <meta name="description" content="Empower your child with AI, coding, and future technology skills. NexusLearn offers premium courses in AI, Python, Web Development, and Robotics for kids aged 8–18." />
+  <meta name="keywords" content="AI education, coding for kids, learn Python, robotics, web development, EdTech, STEM" />
+  <meta name="author" content="NexusLearn" />
+  <meta property="og:title" content="NexusLearn — AI & Coding Education for Kids" />
+  <meta property="og:description" content="Empowering the next generation with Artificial Intelligence, Coding, and Future Technology Skills." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* Hero canvas */
+    #hero-particles {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+    /* Typed cursor */
+    .typed-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1em;
+      background: var(--color-primary);
+      margin-left: 2px;
+      vertical-align: middle;
+      animation: blink 0.9s step-end infinite;
+      border-radius: 2px;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+    /* Course filter buttons */
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 9px 22px;
+      border-radius: var(--radius-full);
+      background: rgba(91,94,244,0.08);
+      border: 1.5px solid var(--color-border);
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--gradient-primary);
+      border-color: transparent;
+      color: #fff;
+    }
+    /* Stats bar */
+    .stats-bar {
+      background: rgba(15,23,41,0.8);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 24px;
+      backdrop-filter: blur(20px);
+      margin-top: 60px;
+    }
+    .stats-bar-item { text-align: center; }
+    .stats-bar-item .num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stats-bar-item .label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .stats-divider {
+      width: 1px;
+      height: 50px;
+      background: var(--color-border);
+    }
+    @media (max-width: 600px) {
+      .stats-bar { flex-direction: column; padding: 24px; gap: 20px; }
+      .stats-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="NexusLearn Home">
+        <div class="nav-logo-icon" aria-hidden="true">🚀</div>
+        <span>NexusLearn</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#why-ai">AI & Coding</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="courses.html" class="btn btn-outline btn-sm">View Courses</a>
+        <a href="contact.html" class="btn btn-primary btn-sm">Book Demo</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-nav" class="mobile-nav" role="menu">
+    <a href="#hero" role="menuitem">🏠 Home</a>
+    <a href="#why-ai" role="menuitem">🤖 Why AI?</a>
+    <a href="#courses" role="menuitem">📚 Courses</a>
+    <a href="#testimonials" role="menuitem">⭐ Reviews</a>
+    <a href="about.html" role="menuitem">👥 About Us</a>
+    <a href="contact.html" role="menuitem">📞 Contact</a>
+    <a href="contact.html" class="btn btn-primary">Book Free Demo</a>
+  </div>
+
+  <!-- ═══ HERO SECTION ═══ -->
+  <section id="hero" aria-label="Hero section">
+    <div class="hero-bg"></div>
+    <canvas id="hero-particles" aria-hidden="true"></canvas>
+    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge" aria-label="Platform badge">
+            <span class="dot" aria-hidden="true"></span>
+            🌟 #1 AI & Coding Platform for Kids
+          </div>
+
+          <h1 class="hero-title">
+            Learn <span class="text-gradient">AI & Coding</span><br/>
+            Before the Future<br/>Arrives
+          </h1>
+
+          <p class="hero-subtitle">
+            Empowering the next generation with
+            <strong id="typed-text" style="color:var(--color-accent)"></strong><span class="typed-cursor" aria-hidden="true"></span>
+            skills for tomorrow's world.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#courses" class="btn btn-primary btn-lg" id="explore-courses-btn">
+              🎓 Explore Courses
+            </a>
+            <a href="contact.html" class="btn btn-outline btn-lg" id="book-demo-btn">
+              📅 Book Free Demo
+            </a>
+          </div>
+
+          <div class="hero-stats" role="list">
+            <div class="hero-stat" role="listitem">
+              <div class="hero-stat-num">
+                <span data-counter="5000" data-suffix="+">5000+</span>
+              </div>
+              <div class="hero-stat-label">Students Enrolled</div>
+            </div>
+            <div class="hero-stat" role="listitem">
+              <div class="hero-stat-num">
+                <span data-counter="50" data-suffix="+">50+</span>
+              </div>
+              <div class="hero-stat-label">Expert Instructors</div>
+            </div>
+            <div class="hero-stat" role="listitem">
+              <div class="hero-stat-num">
+                <span data-counter="98" data-suffix="%">98%</span>
+              </div>
+              <div class="hero-stat-label">Satisfaction Rate</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-image-wrap">
+            <img src="images/hero.png" alt="Kids learning AI and coding in a futuristic environment" loading="eager" />
+
+            <div class="hero-float-card hero-float-1" aria-hidden="true">
+              <div class="icon icon-purple" style="background:rgba(168,85,247,0.2);">🧠</div>
+              <div>
+                <div style="font-size:0.78rem;color:var(--text-muted)">New lesson</div>
+                <div>AI Fundamentals</div>
+              </div>
+            </div>
+
+            <div class="hero-float-card hero-float-2" aria-hidden="true">
+              <div class="icon icon-green" style="background:rgba(34,197,94,0.2);">✅</div>
+              <div>
+                <div style="font-size:0.78rem;color:var(--text-muted)">Completed</div>
+                <div>Python Project</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="stats-bar reveal" role="region" aria-label="Platform statistics">
+        <div class="stats-bar-item">
+          <div class="num"><span data-counter="4" data-suffix="">0</span>+</div>
+          <div class="label">Courses Available</div>
+        </div>
+        <div class="stats-divider" aria-hidden="true"></div>
+        <div class="stats-bar-item">
+          <div class="num"><span data-counter="8" data-suffix="">0</span>-18</div>
+          <div class="label">Age Range (Years)</div>
+        </div>
+        <div class="stats-divider" aria-hidden="true"></div>
+        <div class="stats-bar-item">
+          <div class="num">Live &amp;</div>
+          <div class="label">Online Classes</div>
+        </div>
+        <div class="stats-divider" aria-hidden="true"></div>
+        <div class="stats-bar-item">
+          <div class="num">🏆</div>
+          <div class="label">Certified Courses</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY LEARN AI ═══ -->
+  <section id="why-ai" class="section-padding" aria-labelledby="why-ai-heading">
+    <div class="container">
+      <div class="why-ai-grid">
+        <div class="why-ai-content">
+          <div class="badge reveal">🤖 Artificial Intelligence</div>
+          <h2 id="why-ai-heading" class="reveal reveal-delay-1">
+            What is AI &amp; Why It<br/><span class="text-gradient">Matters Now</span>
+          </h2>
+          <p class="reveal reveal-delay-2">
+            <strong>Artificial Intelligence</strong> is technology that enables machines to learn, reason, and solve problems — much like the human brain. AI is not the future; it's the present, transforming every field you can imagine.
+          </p>
+          <p class="reveal reveal-delay-3">
+            From voice assistants to medical diagnoses, from self-driving cars to smart classrooms — AI is reshaping civilization. The children who understand AI today will lead the world tomorrow.
+          </p>
+
+          <div class="ai-uses-grid reveal reveal-delay-4" role="list">
+            <div class="ai-use-item" role="listitem">
+              <span class="icon" aria-hidden="true">🏥</span> Healthcare &amp; Medicine
+            </div>
+            <div class="ai-use-item" role="listitem">
+              <span class="icon" aria-hidden="true">🎓</span> Education &amp; Learning
+            </div>
+            <div class="ai-use-item" role="listitem">
+              <span class="icon" aria-hidden="true">💰</span> Finance &amp; Banking
+            </div>
+            <div class="ai-use-item" role="listitem">
+              <span class="icon" aria-hidden="true">🏢</span> Business &amp; Commerce
+            </div>
+            <div class="ai-use-item" role="listitem">
+              <span class="icon" aria-hidden="true">🚗</span> Transportation
+            </div>
+            <div class="ai-use-item" role="listitem">
+              <span class="icon" aria-hidden="true">📱</span> Everyday Apps
+            </div>
+          </div>
+        </div>
+
+        <div class="why-ai-visual reveal-right">
+          <img src="images/ai-brain.png" alt="Abstract AI neural network illustration" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Why kids should learn AI -->
+      <div class="section-header reveal" style="margin-top:20px;">
+        <div class="badge">👦 For Kids &amp; Teens</div>
+        <h2>Why Kids Should Learn <span class="text-gradient">AI Today</span></h2>
+        <p>Give your child the skills that will define the next decade. Here's why starting early makes all the difference.</p>
+      </div>
+
+      <div class="ai-benefits-cards" role="list">
+        <article class="glass-card ai-benefit-card reveal reveal-delay-1" role="listitem" data-tilt>
+          <div class="card-icon icon-purple" aria-hidden="true">🧩</div>
+          <h3>Problem Solving</h3>
+          <p>AI thinking trains students to break down complex problems into manageable steps.</p>
+        </article>
+        <article class="glass-card ai-benefit-card reveal reveal-delay-2" role="listitem" data-tilt>
+          <div class="card-icon icon-blue" aria-hidden="true">🎨</div>
+          <h3>Creativity</h3>
+          <p>AI tools unleash creative potential — building art, music, stories, and inventions.</p>
+        </article>
+        <article class="glass-card ai-benefit-card reveal reveal-delay-3" role="listitem" data-tilt>
+          <div class="card-icon icon-cyan" aria-hidden="true">🔮</div>
+          <h3>Logical Thinking</h3>
+          <p>Coding and AI develop structured, logical minds that excel in all academic subjects.</p>
+        </article>
+        <article class="glass-card ai-benefit-card reveal reveal-delay-4" role="listitem" data-tilt>
+          <div class="card-icon icon-green" aria-hidden="true">🚀</div>
+          <h3>Future-Ready Skills</h3>
+          <p>85% of jobs in 2030 don't exist yet. AI and coding skills will be universally required.</p>
+        </article>
+        <article class="glass-card ai-benefit-card reveal reveal-delay-5" role="listitem" data-tilt>
+          <div class="card-icon icon-orange" aria-hidden="true">🌍</div>
+          <h3>Tech Understanding</h3>
+          <p>Understanding how technology works helps kids become creators, not just consumers.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY LEARN CODING ═══ -->
+  <section id="why-coding" class="section-padding" aria-labelledby="why-coding-heading">
+    <div class="container">
+      <div class="coding-grid">
+        <div class="coding-visual reveal-left">
+          <img src="images/coding-kids.png" alt="Kids collaboratively coding on laptops and tablets" loading="lazy" />
+        </div>
+
+        <div class="coding-content">
+          <div class="badge reveal">💻 Learn to Code</div>
+          <h2 id="why-coding-heading" class="reveal reveal-delay-1">
+            Coding: The <span class="text-gradient-accent">Superpower</span><br/>Every Kid Needs
+          </h2>
+          <p class="reveal reveal-delay-2">Coding is the language of the future. When kids learn to code, they gain the ability to build anything they can imagine — from websites and apps to games and robots.</p>
+
+          <div class="coding-benefits">
+            <div class="coding-benefit reveal reveal-delay-2">
+              <div class="icon" aria-hidden="true">🌐</div>
+              <div class="coding-benefit-text">
+                <h4>Build Websites</h4>
+                <p>Create beautiful, functional websites using HTML, CSS, and JavaScript.</p>
+              </div>
+            </div>
+            <div class="coding-benefit reveal reveal-delay-3">
+              <div class="icon" aria-hidden="true">📱</div>
+              <div class="coding-benefit-text">
+                <h4>Create Apps</h4>
+                <p>Turn ideas into real apps that can run on phones, tablets, and computers.</p>
+              </div>
+            </div>
+            <div class="coding-benefit reveal reveal-delay-4">
+              <div class="icon" aria-hidden="true">🎮</div>
+              <div class="coding-benefit-text">
+                <h4>Develop Games</h4>
+                <p>Design and code interactive games — learn logic through play and creativity.</p>
+              </div>
+            </div>
+            <div class="coding-benefit reveal reveal-delay-5">
+              <div class="icon" aria-hidden="true">🧪</div>
+              <div class="coding-benefit-text">
+                <h4>Solve Real Problems</h4>
+                <p>Apply code to real-world challenges — automation, data, and beyond.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COURSES SECTION ═══ -->
+  <section id="courses" class="section-padding" aria-labelledby="courses-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge reveal">📚 Our Courses</div>
+        <h2 id="courses-heading" class="reveal reveal-delay-1">
+          Explore Our <span class="text-gradient">Learning Paths</span>
+        </h2>
+        <p class="reveal reveal-delay-2">Carefully designed courses for beginners to advanced learners, taught by expert instructors who make learning fun and engaging.</p>
+      </div>
+
+      <div class="courses-grid" role="list">
+
+        <!-- AI for Beginners -->
+        <article class="course-card reveal reveal-delay-1" role="listitem">
+          <div class="course-image">
+            <img src="images/course-ai.png" alt="AI for Beginners course" loading="lazy" />
+            <span class="course-tag tag-purple">🤖 AI</span>
+          </div>
+          <div class="course-body">
+            <h3>AI for Beginners</h3>
+            <p>Discover the world of Artificial Intelligence — how machines think, learn, and make decisions. No prior experience needed.</p>
+            <div class="course-topics" aria-label="Topics covered">
+              <span class="course-topic">AI Fundamentals</span>
+              <span class="course-topic">Prompt Engineering</span>
+              <span class="course-topic">AI Tools</span>
+              <span class="course-topic">Ethics in AI</span>
+            </div>
+            <div class="course-meta">
+              <div class="course-meta-item"><span class="icon" aria-hidden="true">⏱️</span> 8 Weeks</div>
+              <div class="course-meta-item"><span class="icon" aria-hidden="true">👤</span> Ages 10–18</div>
+              <div class="course-meta-item"><span class="icon" aria-hidden="true">🎯</span> Beginner</div>
+            </div>
+            <a href="courses.html" class="btn btn-primary" style="width:100%;justify-content:center;" aria-label="Learn more about AI for Beginners">Learn More →</a>
+          </div>
+        </article>
+
+        <!-- Python Programming -->
+        <article class="course-card reveal reveal-delay-2" role="listitem">
+          <div class="course-image">
+            <img src="images/course-python.png" alt="Python Programming course" loading="lazy" />
+            <span class="course-tag tag-orange">🐍 Python</span>
+          </div>
+          <div class="course-body">
+            <h3>Python Programming</h3>
+            <p>Learn the world's most popular programming language from scratch. Build real projects and master core concepts step by step.</p>
+            <div class="course-topics" aria-label="Topics covered">
+              <span class="course-topic">Variables</span>
+              <span class="course-topic">Loops</span>
+              <span class="course-topic">Functions</span>
+              <span class="course-topic">Projects</span>
+            </div>
+            <div class="course-meta">
+              <div class="course-meta-item"><span class="icon" aria-hidden="true">⏱️</span> 10 Weeks</div>
+              <div class="course-meta-item"><span class="icon" aria-hidden="true">👤</span> Ages 10–18</div>
+              <div class="course-meta-item"><span class="icon" aria-hidden="true">🎯</span> Beginner</div>
+            </div>
+            <a href="courses.html" class="btn btn-primary" style="width:100%;justify-content:center;" aria-label="Learn more about Python Programming">Learn More →</a>
+          </div>
+        </article>
+
+        <!-- Web Development -->
+        <article class="course-card reveal reveal-delay-3" role="listitem">
+          <div class="course-image">
+            <img src="images/course-webdev.png" alt="Web Development course" loading="lazy" />
+            <span class="course-tag tag-cyan">🌐 Web Dev</span>
+          </div>
+          <div class="course-body">
+            <h3>Web Development</h3>
+            <p>Build stunning, responsive websites from the ground up. Learn the essential technologies that power the modern web.</p>
+            <div class="course-topics" aria-label="Topics covered">
+              <span class="course-topic">HTML5</span>
+              <span class="course-topic">CSS3</span>
+              <span class="course-topic">JavaScript</span>
+              <span class="course-topic">Responsive</span>
+            </div>
+            <div class="course-meta">
+              <div class="course-meta-item"><span class="icon" aria-hidden="true">⏱️</span> 12 Weeks</div>
+              <div class="course-meta-item"><span class="icon" aria-hidden="true">👤</span> Ages 12–18</div>
+              <div class="course-meta-item"><span class="icon" aria-hidden="true">🎯</span> Beginner</div>
+            </div>
+            <a href="courses.html" class="btn btn-primary" style="width:100%;justify-content:center;" aria-label="Learn more about Web Development">Learn More →</a>
+          </div>
+        </article>
+
+        <!-- Robotics Basics -->
+        <article class="course-card reveal reveal-delay-4" role="listitem">
+          <div class="course-image">
+            <div style="height:100%;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;font-size:5rem;">🤖</div>
+            <span class="course-tag tag-orange">⚙️ Robotics</span>
+          </div>
+          <div class="course-body">
+            <h3>Robotics Basics</h3>
+            <p>Hands-on robotics for curious minds. Understand sensors, automation, and electronics while building your first robot.</p>
+            <div class="course-topics" aria-label="Topics covered">
+              <span class="course-topic">Sensors</span>
+              <span class="course-topic">Automation</span>
+              <span class="course-topic">Electronics</span>
+              <span class="course-topic">Arduino</span>
+            </div>
+            <div class="course-meta">
+              <div class="course-meta-item"><span class="icon" aria-hidden="true">⏱️</span> 10 Weeks</div>
+              <div class="course-meta-item"><span class="icon" aria-hidden="true">👤</span> Ages 8–18</div>
+              <div class="course-meta-item"><span class="icon" aria-hidden="true">🎯</span> Beginner</div>
+            </div>
+            <a href="courses.html" class="btn btn-primary" style="width:100%;justify-content:center;" aria-label="Learn more about Robotics Basics">Learn More →</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div style="text-align:center;margin-top:40px;" class="reveal">
+        <a href="courses.html" class="btn btn-outline btn-lg">View All Courses →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section id="testimonials" class="section-padding" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge reveal">⭐ Student Stories</div>
+        <h2 id="testimonials-heading" class="reveal reveal-delay-1">
+          Real Results from <span class="text-gradient">Real Students</span>
+        </h2>
+        <p class="reveal reveal-delay-2">Thousands of kids and parents trust NexusLearn to prepare for the future. Here's what they say.</p>
+      </div>
+
+      <div class="testimonials-slider-wrap" aria-label="Testimonials slider">
+        <div class="testimonials-track" id="testimonials-track">
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote" aria-hidden="true">"</div>
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p class="testimonial-text">"My daughter was completely fascinated! She built her first website in just 3 weeks. NexusLearn made coding feel like a superpower, not homework."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar avatar-purple" aria-hidden="true">S</div>
+                <div class="author-info">
+                  <div class="name">Sarah M.</div>
+                  <div class="role">Parent of 12-year-old</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote" aria-hidden="true">"</div>
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p class="testimonial-text">"I learned Python from scratch and built a game for my science fair! The instructors are amazing and really patient with beginners."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar avatar-blue" aria-hidden="true">A</div>
+                <div class="author-info">
+                  <div class="name">Aryan K., age 15</div>
+                  <div class="role">Python Graduate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote" aria-hidden="true">"</div>
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p class="testimonial-text">"Worth every penny. My son is now teaching ME about AI! The curriculum is up-to-date and the live classes keep kids engaged throughout."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar avatar-green" aria-hidden="true">R</div>
+                <div class="author-info">
+                  <div class="name">Riya P.</div>
+                  <div class="role">Parent of 14-year-old</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote" aria-hidden="true">"</div>
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p class="testimonial-text">"The AI course opened my eyes to what's possible. I created my own chatbot and got first place at the district tech competition!"</p>
+              <div class="testimonial-author">
+                <div class="author-avatar avatar-orange" aria-hidden="true">Z</div>
+                <div class="author-info">
+                  <div class="name">Zara T., age 16</div>
+                  <div class="role">AI Course Graduate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote" aria-hidden="true">"</div>
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p class="testimonial-text">"As a teacher, I recommend NexusLearn to all parents. The structured curriculum and real projects make abstract concepts tangible and exciting."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar avatar-pink" aria-hidden="true">M</div>
+                <div class="author-info">
+                  <div class="name">Ms. Mehta</div>
+                  <div class="role">School Teacher, Mumbai</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-inner">
+              <div class="testimonial-quote" aria-hidden="true">"</div>
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p class="testimonial-text">"My 10-year-old built a robot for the first time! He is absolutely obsessed with robotics now. Best gift I've ever given him."</p>
+              <div class="testimonial-author">
+                <div class="author-avatar avatar-teal" aria-hidden="true">J</div>
+                <div class="author-info">
+                  <div class="name">James L.</div>
+                  <div class="role">Parent of 10-year-old</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slider-controls" aria-label="Slider controls">
+        <button class="slider-btn" id="slider-prev" aria-label="Previous testimonial">←</button>
+        <div class="slider-dots" id="slider-dots" role="group" aria-label="Slide indicators"></div>
+        <button class="slider-btn" id="slider-next" aria-label="Next testimonial">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ SECTION ═══ -->
+  <section id="faq" class="section-padding" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge reveal">❓ FAQ</div>
+        <h2 id="faq-heading" class="reveal reveal-delay-1">
+          Frequently Asked <span class="text-gradient">Questions</span>
+        </h2>
+        <p class="reveal reveal-delay-2">Everything you need to know before getting started. Can't find an answer? <a href="contact.html" style="color:var(--color-primary)">Contact us</a>.</p>
+      </div>
+
+      <div class="faq-container">
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>What is Artificial Intelligence (AI)?</span>
+            <div class="faq-icon" aria-hidden="true">+</div>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Artificial Intelligence (AI) is the simulation of human intelligence by computer systems. This includes tasks like learning from data, recognizing patterns, making decisions, and solving problems. In our courses, we teach students what AI is, how it works, and how to use AI tools creatively and responsibly.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-1">
+          <button class="faq-question" aria-expanded="false">
+            <span>What age can start learning AI and coding?</span>
+            <div class="faq-icon" aria-hidden="true">+</div>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Our courses are designed for students aged 8 to 18 years. We have beginner tracks specifically for younger learners (ages 8–11) using visual and block-based coding, and more advanced tracks for teens (12–18) covering Python, AI, web development, and robotics with real code.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-2">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do I need any prior coding experience?</span>
+            <div class="faq-icon" aria-hidden="true">+</div>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Absolutely not! All our beginner courses start from zero. We assume no prior knowledge and build up gradually. Our instructors are trained to make complex ideas simple, fun, and accessible for every learner — whether they've never touched a computer or are already tech-savvy.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-3">
+          <button class="faq-question" aria-expanded="false">
+            <span>How are classes conducted?</span>
+            <div class="faq-icon" aria-hidden="true">+</div>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Classes are conducted live online via video conferencing in small groups (maximum 6–8 students per batch) to ensure personalized attention. Each session is interactive, project-based, and fun. All sessions are recorded so students can revisit them anytime. We also offer weekend batches for school-going students.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal reveal-delay-4">
+          <button class="faq-question" aria-expanded="false">
+            <span>Will I receive a certificate upon completion?</span>
+            <div class="faq-icon" aria-hidden="true">+</div>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Yes! Every student who successfully completes a course receives a verified digital certificate from NexusLearn. These certificates can be shared on LinkedIn, added to portfolios, and presented in college applications. We also issue project certificates for completed capstone projects.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CALL TO ACTION ═══ -->
+  <section id="cta" class="section-padding" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="badge" style="margin:0 auto 20px;">🚀 Get Started Today</div>
+        <h2 id="cta-heading">
+          Start Building Your <span class="text-gradient">Future Today</span>
+        </h2>
+        <p>Join thousands of students already learning AI and coding. Book your free demo class and see the difference NexusLearn makes.</p>
+        <div class="cta-actions">
+          <a href="courses.html" class="btn btn-primary btn-lg" id="join-now-btn">🎓 Join Now</a>
+          <a href="contact.html" class="btn btn-outline btn-lg" id="contact-us-btn">📞 Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="display:inline-flex;">
+            <div class="nav-logo-icon" aria-hidden="true">🚀</div>
+            <span>NexusLearn</span>
+          </a>
+          <p>Empowering the next generation of innovators with AI, coding, and technology skills. Building tomorrow's leaders today.</p>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="about.html#mission">Mission &amp; Vision</a></li>
+            <li><a href="about.html#team">Meet the Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Courses</h4>
+          <ul>
+            <li><a href="courses.html">AI for Beginners</a></li>
+            <li><a href="courses.html">Python Programming</a></li>
+            <li><a href="courses.html">Web Development</a></li>
+            <li><a href="courses.html">Robotics Basics</a></li>
+            <li><a href="courses.html">All Courses</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Get in Touch</a></li>
+            <li><a href="contact.html">Book Free Demo</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 NexusLearn. All rights reserved. Made with ❤️ for curious minds.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

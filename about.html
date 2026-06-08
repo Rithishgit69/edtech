@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — NexusLearn AI & Coding Education</title>
+  <meta name="description" content="Learn about NexusLearn's mission to empower kids with AI and coding skills. Meet our expert team and discover why we started." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .value-card {
+      padding: 32px 26px;
+    }
+    .value-card .card-icon {
+      width: 56px; height: 56px;
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+    }
+    .value-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .value-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .milestone-list {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .milestone-item {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 36px;
+      position: relative;
+    }
+    .milestone-item::before {
+      content: '';
+      position: absolute;
+      top: 44px; left: 19px;
+      width: 2px;
+      height: calc(100% + 10px);
+      background: linear-gradient(to bottom, var(--color-primary), transparent);
+      z-index: 0;
+    }
+    .milestone-item:last-child::before { display: none; }
+    .milestone-dot {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      z-index: 1;
+      box-shadow: 0 0 16px rgba(91,94,244,0.4);
+    }
+    .milestone-content {
+      padding-top: 6px;
+    }
+    .milestone-year {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+    .milestone-content h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .milestone-content p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .about-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .about-stat-card {
+      text-align: center;
+      padding: 32px 20px;
+    }
+    .about-stat-card .stat-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .about-stat-card .stat-label {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 900px) {
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .about-stat-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .about-stat-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="NexusLearn Home">
+        <div class="nav-logo-icon" aria-hidden="true">🚀</div>
+        <span>NexusLearn</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#why-ai">AI &amp; Coding</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="courses.html" class="btn btn-outline btn-sm">View Courses</a>
+        <a href="contact.html" class="btn btn-primary btn-sm">Book Demo</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-nav" class="mobile-nav" role="menu">
+    <a href="index.html" role="menuitem">🏠 Home</a>
+    <a href="index.html#why-ai" role="menuitem">🤖 Why AI?</a>
+    <a href="courses.html" role="menuitem">📚 Courses</a>
+    <a href="about.html" class="active" role="menuitem">👥 About Us</a>
+    <a href="contact.html" role="menuitem">📞 Contact</a>
+    <a href="contact.html" class="btn btn-primary">Book Free Demo</a>
+  </div>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="page-hero" aria-labelledby="about-page-heading">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-orb page-hero-orb-1" aria-hidden="true"></div>
+    <div class="page-hero-orb page-hero-orb-2" aria-hidden="true"></div>
+    <div class="page-hero-grid" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="badge" style="margin:0 auto 16px;">👥 About NexusLearn</div>
+        <h1 id="about-page-heading">
+          We're on a Mission to<br/><span class="text-gradient">Empower Every Child</span>
+        </h1>
+        <p>Founded by educators and technologists who believe that every child deserves access to future-ready skills.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OUR STORY ═══ -->
+  <section id="story" class="section-padding" aria-labelledby="story-heading">
+    <div class="container">
+      <div class="about-story-grid">
+        <div class="about-story-content">
+          <div class="badge reveal">📖 Our Story</div>
+          <h2 id="story-heading" class="reveal reveal-delay-1">
+            Why We <span class="text-gradient">Started</span> NexusLearn
+          </h2>
+          <p class="reveal reveal-delay-2">
+            It began with a simple observation: the world was changing faster than the education system could keep up. Our founders — educators, engineers, and parents — watched as AI and technology reshaped every industry, yet classrooms still taught the same subjects from decades past.
+          </p>
+          <p class="reveal reveal-delay-3">
+            In 2021, we launched NexusLearn with one goal: give every child, regardless of background, the tools to understand and shape the technology-driven world around them. We believe coding and AI are not just technical skills — they're ways of thinking.
+          </p>
+          <p class="reveal reveal-delay-4">
+            Today, with thousands of students across the country, we continue to build the most engaging, accessible, and rigorous tech education platform for young minds.
+          </p>
+        </div>
+        <div class="about-story-visual reveal-right">
+          <img src="images/coding-kids.png" alt="Students collaborating and learning together" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS ═══ -->
+  <section class="section-padding-sm" style="background:var(--color-bg-2);" aria-label="NexusLearn statistics">
+    <div class="container">
+      <div class="about-stat-grid">
+        <div class="glass-card about-stat-card reveal reveal-delay-1">
+          <div class="stat-num"><span data-counter="5000" data-suffix="+">5000+</span></div>
+          <div class="stat-label">Students Enrolled</div>
+        </div>
+        <div class="glass-card about-stat-card reveal reveal-delay-2">
+          <div class="stat-num"><span data-counter="50" data-suffix="+">50+</span></div>
+          <div class="stat-label">Expert Instructors</div>
+        </div>
+        <div class="glass-card about-stat-card reveal reveal-delay-3">
+          <div class="stat-num"><span data-counter="40" data-suffix="+">40+</span></div>
+          <div class="stat-label">Courses Available</div>
+        </div>
+        <div class="glass-card about-stat-card reveal reveal-delay-4">
+          <div class="stat-num"><span data-counter="98" data-suffix="%">98%</span></div>
+          <div class="stat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MISSION & VISION ═══ -->
+  <section id="mission" class="section-padding" aria-labelledby="mission-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge reveal">🎯 Purpose</div>
+        <h2 id="mission-heading" class="reveal reveal-delay-1">
+          Our Mission &amp; <span class="text-gradient">Vision</span>
+        </h2>
+        <p class="reveal reveal-delay-2">Every decision we make is guided by our core purpose and long-term vision for technology education.</p>
+      </div>
+
+      <div class="mv-grid">
+        <div class="glass-card mv-card reveal reveal-delay-1">
+          <div class="card-icon icon-purple">🎯</div>
+          <h3>Our Mission</h3>
+          <p>To make high-quality AI and coding education accessible to every child between the ages of 8 and 18. We provide engaging, project-based learning experiences that build real-world skills, nurture creativity, and prepare students for a technology-driven future — regardless of their background or prior knowledge.</p>
+        </div>
+        <div class="glass-card mv-card reveal reveal-delay-2">
+          <div class="card-icon icon-cyan">🔭</div>
+          <h3>Our Vision</h3>
+          <p>A world where every child grows up fluent in the language of technology. We envision a generation of young innovators, problem-solvers, and creators who don't just use technology, but shape it. NexusLearn aims to be the platform that launches a million future engineers, entrepreneurs, and scientists.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VALUES ═══ -->
+  <section class="section-padding-sm" style="background:var(--color-bg-2);" aria-labelledby="values-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge reveal">💎 Core Values</div>
+        <h2 id="values-heading" class="reveal reveal-delay-1">What We <span class="text-gradient">Stand For</span></h2>
+      </div>
+      <div class="values-grid">
+        <div class="glass-card value-card reveal reveal-delay-1">
+          <div class="card-icon icon-blue">🌟</div>
+          <h3>Excellence</h3>
+          <p>We hold ourselves to the highest standards in curriculum design, teaching quality, and student experience.</p>
+        </div>
+        <div class="glass-card value-card reveal reveal-delay-2">
+          <div class="card-icon icon-green">🤝</div>
+          <h3>Accessibility</h3>
+          <p>Technology education should not be a privilege. We work to make learning affordable and inclusive for all.</p>
+        </div>
+        <div class="glass-card value-card reveal reveal-delay-3">
+          <div class="card-icon icon-orange">🎨</div>
+          <h3>Creativity</h3>
+          <p>We believe coding is as creative as painting. We foster imagination alongside technical skill at every step.</p>
+        </div>
+        <div class="glass-card value-card reveal reveal-delay-1">
+          <div class="card-icon icon-purple">🔬</div>
+          <h3>Innovation</h3>
+          <p>Our curriculum evolves constantly to include the latest technologies, tools, and real-world applications.</p>
+        </div>
+        <div class="glass-card value-card reveal reveal-delay-2">
+          <div class="card-icon icon-pink">❤️</div>
+          <h3>Student-First</h3>
+          <p>Every decision we make starts with one question: how does this make the student's experience better?</p>
+        </div>
+        <div class="glass-card value-card reveal reveal-delay-3">
+          <div class="card-icon icon-cyan">🌍</div>
+          <h3>Responsibility</h3>
+          <p>We teach students not just how to use technology, but to use it ethically and responsibly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MILESTONES ═══ -->
+  <section class="section-padding" aria-labelledby="milestones-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge reveal">📅 Our Journey</div>
+        <h2 id="milestones-heading" class="reveal reveal-delay-1">How We <span class="text-gradient">Grew</span></h2>
+      </div>
+      <div class="milestone-list reveal">
+        <div class="milestone-item">
+          <div class="milestone-dot" aria-hidden="true">🚀</div>
+          <div class="milestone-content">
+            <div class="milestone-year">2021 — Founded</div>
+            <h4>NexusLearn is Born</h4>
+            <p>Started by 3 passionate educators and engineers with a vision to democratize tech education for children across India.</p>
+          </div>
+        </div>
+        <div class="milestone-item">
+          <div class="milestone-dot" aria-hidden="true">👦</div>
+          <div class="milestone-content">
+            <div class="milestone-year">2022 — First Cohort</div>
+            <h4>100 Students in Batch One</h4>
+            <p>Our first batch of students graduated from the Python and Web Development courses with outstanding results and real projects.</p>
+          </div>
+        </div>
+        <div class="milestone-item">
+          <div class="milestone-dot" aria-hidden="true">🤖</div>
+          <div class="milestone-content">
+            <div class="milestone-year">2023 — AI Curriculum Launch</div>
+            <h4>AI Courses Go Live</h4>
+            <p>We launched India's first child-focused AI curriculum covering machine learning basics, prompt engineering, and AI ethics.</p>
+          </div>
+        </div>
+        <div class="milestone-item">
+          <div class="milestone-dot" aria-hidden="true">🏆</div>
+          <div class="milestone-content">
+            <div class="milestone-year">2024 — 2000+ Students</div>
+            <h4>EdTech Excellence Award</h4>
+            <p>Crossed 2,000 enrolled students and received the National EdTech Innovation Award for curriculum excellence.</p>
+          </div>
+        </div>
+        <div class="milestone-item">
+          <div class="milestone-dot" aria-hidden="true">🌟</div>
+          <div class="milestone-content">
+            <div class="milestone-year">2026 — Today</div>
+            <h4>5000+ Students &amp; Growing</h4>
+            <p>NexusLearn now serves 5,000+ students with 40+ courses, 50+ instructors, and an ambition to reach 1 million learners by 2030.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TEAM ═══ -->
+  <section id="team" class="section-padding" style="background:var(--color-bg-2);" aria-labelledby="team-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge reveal">👥 The Team</div>
+        <h2 id="team-heading" class="reveal reveal-delay-1">
+          Meet the <span class="text-gradient">Minds</span> Behind NexusLearn
+        </h2>
+        <p class="reveal reveal-delay-2">Our diverse team of educators, engineers, and designers are united by one passion: helping kids fall in love with technology.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="glass-card team-card reveal reveal-delay-1">
+          <div class="team-avatar avatar-purple">A</div>
+          <h3>Arjun Sharma</h3>
+          <div class="role">Co-Founder &amp; CEO</div>
+          <p>IIT graduate and former Google engineer. 12+ years in EdTech. Passionate about making tech education equitable.</p>
+        </div>
+        <div class="glass-card team-card reveal reveal-delay-2">
+          <div class="team-avatar avatar-blue">P</div>
+          <h3>Priya Nair</h3>
+          <div class="role">Co-Founder &amp; Head of Curriculum</div>
+          <p>Former school principal turned EdTech innovator. Designs every course with child psychology at its core.</p>
+        </div>
+        <div class="glass-card team-card reveal reveal-delay-3">
+          <div class="team-avatar avatar-green">R</div>
+          <h3>Rahul Mehta</h3>
+          <div class="role">CTO &amp; Lead AI Instructor</div>
+          <p>Machine learning researcher and full-stack developer. Makes AI concepts fun and approachable for young learners.</p>
+        </div>
+        <div class="glass-card team-card reveal reveal-delay-4">
+          <div class="team-avatar avatar-orange">S</div>
+          <h3>Sneha Patel</h3>
+          <div class="role">Head of Design &amp; UX</div>
+          <p>Award-winning UX designer who crafts the learning experiences and visual identity that students love.</p>
+        </div>
+        <div class="glass-card team-card reveal reveal-delay-1">
+          <div class="team-avatar avatar-pink">K</div>
+          <h3>Kavita Rao</h3>
+          <div class="role">Lead Python Instructor</div>
+          <p>Software engineer turned teacher. Her students consistently build impressive projects that win competitions.</p>
+        </div>
+        <div class="glass-card team-card reveal reveal-delay-2">
+          <div class="team-avatar avatar-teal">V</div>
+          <h3>Vikram Singh</h3>
+          <div class="role">Robotics &amp; Hardware Lead</div>
+          <p>Robotics engineer with a knack for making electronics accessible and thrilling for kids as young as 8.</p>
+        </div>
+        <div class="glass-card team-card reveal reveal-delay-3">
+          <div class="team-avatar avatar-purple">M</div>
+          <h3>Maya Krishnan</h3>
+          <div class="role">Head of Student Success</div>
+          <p>Dedicated to ensuring every student reaches their full potential with personalized support and mentoring.</p>
+        </div>
+        <div class="glass-card team-card reveal reveal-delay-4">
+          <div class="team-avatar avatar-blue">D</div>
+          <h3>Dev Agarwal</h3>
+          <div class="role">Web Dev Instructor</div>
+          <p>Full-stack developer who has built products used by millions. Loves teaching the next generation of web creators.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="section-padding" aria-labelledby="about-cta-heading">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="badge" style="margin:0 auto 20px;">🚀 Join Us</div>
+        <h2 id="about-cta-heading">Ready to <span class="text-gradient">Build the Future?</span></h2>
+        <p>Join thousands of students already on their journey. Your child's first lesson is just one click away.</p>
+        <div class="cta-actions">
+          <a href="courses.html" class="btn btn-primary btn-lg">🎓 Explore Courses</a>
+          <a href="contact.html" class="btn btn-outline btn-lg">📅 Book Free Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="display:inline-flex;">
+            <div class="nav-logo-icon">🚀</div>
+            <span>NexusLearn</span>
+          </a>
+          <p>Empowering the next generation of innovators with AI, coding, and technology skills.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="about.html#mission">Mission &amp; Vision</a></li>
+            <li><a href="about.html#team">Meet the Team</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Courses</h4>
+          <ul>
+            <li><a href="courses.html">AI for Beginners</a></li>
+            <li><a href="courses.html">Python Programming</a></li>
+            <li><a href="courses.html">Web Development</a></li>
+            <li><a href="courses.html">Robotics Basics</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Get in Touch</a></li>
+            <li><a href="contact.html">Book Free Demo</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 NexusLearn. All rights reserved. Made with ❤️ for curious minds.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
